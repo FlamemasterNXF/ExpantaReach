@@ -1,0 +1,8 @@
+.flexBox {
+    display: flex;
+    align-items: center;
+    place-content:center
+}
+.generalText{
+    color: white;
+}

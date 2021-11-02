@@ -1,4 +1,4 @@
-import ExpantaNum from 'Internal/ExpantaNum.js'
+import ExpantaNum from './Internal/ExpantaNum.js'
 var number = new ExpantaNum(1)
 function mainLoop(){
     updateHTML()

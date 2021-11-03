@@ -1,9 +1,6 @@
-/*
-//dead
-import ExpantaNum from 'Internal/ExpantaNum.js'
 function getDefaultObject() {
     return {
-        number: new ExpantaNum(1),
+        number: new Decimal(1),
         //misc
         time: Date.now(),
         currentTab: 1,
@@ -12,18 +9,18 @@ function getDefaultObject() {
 let data = getDefaultObject()
 //saving and loading
 function save(){
-    window.localStorage.setItem('expantaReachSave', JSON.stringify(data))
+    window.localStorage.setItem('theGrindSave', JSON.stringify(data))
 }
 function load() {
-    let savedata = JSON.parse(window.localStorage.getItem('expantaReachSave'))
+    let savedata = JSON.parse(window.localStorage.getItem('theGrindSave'))
     if (savedata !== undefined) fixSave(data, savedata)
 }
 //fix saves
 function fixSave(main=getDefaultObject(), data) {
     if (typeof data === "object") {
         Object.keys(data).forEach(i => {
-            if (main[i] instanceof ExpantaNum) {
-                main[i] = new ExpantaNum(data[i]!==null?data[i]:main[i])
+            if (main[i] instanceof Decimal) {
+                main[i] = new Decimal(data[i]!==null?data[i]:main[i])
             } else if (typeof main[i]  == "object") {
                 fixSave(main[i], data[i])
             } else {
@@ -64,7 +61,6 @@ window.onload = function (){
 //full reset
 function fullReset(){
     exportSave()
-    window.localStorage.removeItem('expantaReachSave')
+    window.localStorage.removeItem('theGrindSave')
     location.reload()
 }
- */

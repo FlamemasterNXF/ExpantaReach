@@ -15,6 +15,10 @@ function updateHTML(){
     showAndHideStuff()
 }
 function showAndHideStuff(){
+    let all = document.getElementById("mainPageContainer")
+    all.style.display = !data.canGetInfinity ? 'flex' : 'none'
+    let gwasmith = document.getElementById("gwasmithContainer")
+    gwasmith.style.display = data.canGetInfinity ? 'flex' :'none'
     let slowdown = document.getElementById("slowdown")
     let slowdownText = document.getElementById("scaling2")
     slowdown.style.display = data.resets[0].gte(5) ? 'flex' : 'none'

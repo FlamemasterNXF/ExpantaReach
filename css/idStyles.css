@@ -8,3 +8,10 @@
 #fullReset{
     margin-top: 20px;
 }
+#gwasmithContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}

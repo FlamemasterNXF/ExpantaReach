@@ -9,6 +9,7 @@ function getDefaultObject() {
         automated: false,
         infinities: new Decimal(0),
         isInfinite: false,
+        canGetInfinity: false,
         //misc
         time: Date.now(),
         currentTab: 1,

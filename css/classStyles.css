@@ -3,6 +3,45 @@
     align-items: center;
     place-content:center
 }
+.reset{
+    border: 2px solid darkred;
+    background-color: black;
+    color: gray;
+    margin-top: 10px;
+    width: 300px;
+    height: 70px;
+}
+.resetAuto{
+    border: 2px solid darkred;
+    background-color: black;
+    color: gray;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.slowdown{
+    border: 2px solid darkgreen;
+    background-color: black;
+    color: gray;
+    width: 400px;
+    height: 90px;
+}
+.infinityTube{
+    border: 2px solid goldenrod;
+    background-color: black;
+    color: gray;
+    width: 400px;
+    height: 90px;
+    margin-top: 30px;
+}
+.saveRelated{
+    background-color: black;
+    color: gray;
+    border: darkblue 2px solid;
+    width: 300px;
+    height: 30px;
+    font-size: 11px;
+}
 .generalText{
     color: white;
 }

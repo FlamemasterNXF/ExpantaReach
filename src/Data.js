@@ -1,6 +1,14 @@
 function getDefaultObject() {
     return {
         number: new Decimal(1),
+        gain: new Decimal(2),
+        resets: [new Decimal(0)],
+        isSlowed: false,
+        slowdownEffect: new Decimal(2),
+        slowdownBoost: new Decimal(1),
+        automated: false,
+        infinities: new Decimal(0),
+        isInfinite: false,
         //misc
         time: Date.now(),
         currentTab: 1,
@@ -53,7 +61,7 @@ function importSave(){
 }
 window.setInterval(function(){
     save()
-}, 10000);
+}, 1000);
 window.onload = function (){
     load()
     fixOldSaves()

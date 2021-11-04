@@ -1,0 +1,10 @@
+#mainPageContainer{
+    flex-direction: column;
+}
+#number{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#fullReset{
+    margin-top: 20px;
+}

@@ -11,7 +11,7 @@ function updateHTML(){
         `The power of the Slowdown currently divides your Number Gain by ${format(data.slowdownEffect)} (increases over time)<br>If you exit now your Slowdown Power will be ^${format(slowdownBoostNew)}`
         : `Slowdown Time<br>Based on how high your Number gets while time is slowed you will gain a boost to Number Gain when you return to normal<br>Current Boost: ^${format(data.slowdownBoost)} (applied AFTER Reset boost!)`
     document.getElementById("infinityTube").innerHTML = data.isInfinite ?
-        `You need a Number of e1e308 for a Infinity<br>You are ${format(percent)}% to a Infinity` : `Enter the Infinity Tube<br>This will force Automation to be on, but give you the chance to get a Infinity`
+        `You need a Number of e1e308 for a Infinity<br>Your Number's second exponent is ${format(percent)}% of the requirement for a Infinity` : `Enter the Infinity Tube<br>This will force Automation to be on, but give you the chance to get a Infinity`
     showAndHideStuff()
 }
 function showAndHideStuff(){

@@ -28,14 +28,22 @@ window.setInterval(function(){
 }, 10);
 
 function coolTimerThingy() {
-  if (data.timesec == 60) {
-    data.timesec = 0
-    data.timemin += 1
+  if (data.timems >= 99) {
+    if (data.timesec >= 59) {
+      data.timemin += 1;
+      data.timesec = 0;
+      data.timems = 0;
+    } else {
+      data.timesec += 1
+      data.timems = 0;
+      console.log(data.timesec)
+    }
   } else {
-    data.timesec += 1
+    data.timems += 1;
   }
-  document.getElementById('timer1').innerHTML = data.timemin
-  document.getElementById('timer2').innerHTML = data.timesec
+  document.getElementById("timer1").innerHTML = data.timemin;
+  document.getElementById("timer2").innerHTML = data.timesec;
+  document.getElementById("timer3").innerHTML = data.timems;
 }
 
-setInterval(coolTimerThingy, 1000)
+setInterval(coolTimerThingy, 10);

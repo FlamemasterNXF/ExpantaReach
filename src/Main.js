@@ -26,3 +26,16 @@ function help(){
 window.setInterval(function(){
     mainLoop()
 }, 10);
+
+function coolTimerThingy() {
+  if (data.timesec == 60) {
+    data.timesec = 0
+    data.timemin += 1
+  } else {
+    data.timesec += 1
+  }
+  document.getElementById('timer1').innerHTML = data.timemin
+  document.getElementById('timer2').innerHTML = data.timesec
+}
+
+setInterval(coolTimerThingy, 1000)

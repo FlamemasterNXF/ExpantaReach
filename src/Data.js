@@ -2,14 +2,17 @@ function getDefaultObject() {
     return {
         number: new Decimal(1),
         gain: new Decimal(2),
-        resets: [new Decimal(0)],
+        resets: [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
         isSlowed: false,
         slowdownEffect: new Decimal(2),
         slowdownBoost: new Decimal(1),
         automated: false,
+        automatedDos: false,
+        automatedFinal: false,
+        automatedFinalReal: false,
         infinities: new Decimal(0),
-        isInfinite: false,
-        canGetInfinity: false,
+        finale: false,
+        trueInfinity: false,
         //misc
         time: Date.now(),
         currentTab: 1,
@@ -70,6 +73,10 @@ window.onload = function (){
 //full reset
 function fullReset(){
     exportSave()
-    window.localStorage.removeItem('theGrindSave')
+    deleteSave()
+    all.style.display = `flex`
     location.reload()
+}
+function deleteSave(){
+    window.localStorage.removeItem('theGrindSave')
 }

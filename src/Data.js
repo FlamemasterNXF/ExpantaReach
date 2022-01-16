@@ -17,7 +17,8 @@ function getDefaultObject() {
         time: Date.now(),
         currentTab: 1,
         timesec: 0,
-        timemin: 0
+        timemin: 0,
+        timems: 0
     }
 }
 let data = getDefaultObject()

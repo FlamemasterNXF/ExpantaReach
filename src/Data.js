@@ -74,7 +74,6 @@ window.onload = function (){
 function fullReset(){
     exportSave()
     deleteSave()
-    all.style.display = `flex`
     location.reload()
 }
 function deleteSave(){

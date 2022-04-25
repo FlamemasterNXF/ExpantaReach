@@ -1,5 +1,6 @@
 function getDefaultObject() {
     return {
+        //region pre-j
         number: new Decimal(1),
         gain: new Decimal(2),
         resets: [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
@@ -13,6 +14,16 @@ function getDefaultObject() {
         infinities: new Decimal(0),
         finale: false,
         trueInfinity: false,
+        //endregion
+        confirmedJ: false,
+        jShards: new Decimal(100),
+        jGain: new Decimal(0),
+        jResets: [new Decimal(0), new Decimal(0)],
+        jResetCosts: [new Decimal(100), new Decimal(50)],
+        jSplits: new Decimal(1),
+        jAuto: false,
+        endedJ: false,
+        trueSlow: false,
         //misc
         time: Date.now(),
         currentTab: 1,

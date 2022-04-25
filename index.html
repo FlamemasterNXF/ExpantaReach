@@ -6,6 +6,7 @@
     <script src="src/Internal/BreakEternity.js"></script>
     <script src="src/Internal/Formatting.js"></script>
     <script src="src/Data.js"></script>
+    <script src="src/J.js"></script>
     <script src="src/Finale.js"></script>
     <script src="src/Infinity.js"></script>
     <script src="src/Slowdown.js"></script>
@@ -19,40 +20,58 @@
     <title>The Grind</title>
 </head>
 <body>
+
     <strong style="color: white;">
     Current time: <span id="timer1"></span>:<span id="timer2"></span>.<span id="timer3"></span>
   </strong>
-<div class="flexBox" id="mainPageContainer" style="display: flex">
-    <strong class="flexBox generalText" id="tiCheck" style="color: goldenrod">You have entered the True Infinity. (Reset 5 is effected by Reset 4's effect)</strong>
-    <strong class="flexBox generalText" id="number">0</strong>
-    <t class="generalText" id="scaling">Current Reset Requirement Scaling: [None]</t>
-    <button class="flexBox reset" id="reset1" onclick="reset()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-    <div class="flexBox" style="flex-direction: row">
-        <button class="flexBox resetAuto" id="automation" onclick="changeAutomation()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-        <button class="flexBox resetAuto" id="automation2" onclick="changeAutomation2()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-        <button class="flexBox resetAuto" id="automation3" onclick="changeAutomation3()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-        <button class="flexBox resetAuto" id="automation4" onclick="changeAutomation4()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+    <div class="flexBox" id="theJAnnounce" style="display: none;flex-direction: column;margin-bottom: 20px">
+        <div style="color: #B14565">It is time to leave these childish things behind.</div>
+        <button class="flexBox reset" style="border-color: #B14565; color: #B14565" onclick="j()">Embrace the J.</button>
     </div>
-    <button class="flexBox reset" id="reset2" onclick="resetNew(1)" style="border-color: #8b3100">Reset your Number and Reset 1 but divide the cost of Reset 1 by ((Reset 1 amount+1)^Reset 2+1)<br>Requires: 100 Resets</button>
-    <button class="flexBox reset" id="reset3" onclick="resetNew(2)" style="border-color: #8b6b00">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
-    <button class="flexBox reset" id="reset4" onclick="resetNew(3)" style="border-color: #8b0064">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
-    <button class="flexBox reset" id="reset5" onclick="resetNew(4)" style="border-color: #b3f5f3;border-image: linear-gradient(45deg, rgb(0, 131, 143), rgb(179, 250, 66)) 1;">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
-    <t class="generalText" id="scaling2">Current Reset Requirement Scaling: [None]</t>
-    <button class="flexBox slowdown" id="slowdown" onclick="data.isSlowed?exitSlowdown():slowdown()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-    <button class="flexBox infinityTube" id="infinityTube" onclick="infinity()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
-    <button class="flexBox saveRelated" id="fullReset" onclick="fullReset()">[Temp] Export and Full Reset</button>
-    <button class="flexBox saveRelated" id="export" onclick="exportSave()">[Temp] Export your Savedata to your clipboard</button>
-    <button class="flexBox saveRelated" id="import" onclick="importSave()">[Temp] Import yout Savedata</button>
-    <button class="flexBox saveRelated" id="help" onclick="help()">Set your Number to 100 [ >:( cheater ]</button>
-</div>
-<div class="flexBox" id="finaleContainer" style="display:none;">
-    <button class="flexBox reset" style="border-color: #68008b" onclick="buyFinale()">The combined amounts of all Resets adds to the bulk-buy amount...<br>Cost: 1 Infinity</button>
-</div>
-<div class="flexBox" id="trueInfinity" style="display:none;">
-    <button class="flexBox reset" style="border-color: #ffffff" onclick="ti()">Reset EVERYTHING, but Reset 4's effect is now applied to Reset 5.</button>
-</div>
-<div id="gwasmithContainer">
-    <img src="gwasmith.png" id="gwasmith">
-</div>
+
+    <div class="flexBox" id="mainPageContainer" style="display: flex">
+            <strong class="flexBox generalText" id="tiCheck" style="color: goldenrod">You have entered the True Infinity. (Reset 5 is effected by Reset 4's effect)</strong>
+            <strong class="flexBox generalText" id="number">0</strong>
+            <t class="generalText" id="scaling">Current Reset Requirement Scaling: [None]</t>
+            <button class="flexBox reset" id="reset1" onclick="reset()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+            <div class="flexBox" style="flex-direction: row">
+                <button class="flexBox resetAuto" id="automation" onclick="changeAutomation()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+                <button class="flexBox resetAuto" id="automation2" onclick="changeAutomation2()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+                <button class="flexBox resetAuto" id="automation3" onclick="changeAutomation3()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+                <button class="flexBox resetAuto" id="automation4" onclick="changeAutomation4()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+            </div>
+            <button class="flexBox reset" id="reset2" onclick="resetNew(1)" style="border-color: #8b3100">Reset your Number and Reset 1 but divide the cost of Reset 1 by ((Reset 1 amount+1)^Reset 2+1)<br>Requires: 100 Resets</button>
+            <button class="flexBox reset" id="reset3" onclick="resetNew(2)" style="border-color: #8b6b00">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
+            <button class="flexBox reset" id="reset4" onclick="resetNew(3)" style="border-color: #8b0064">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
+            <button class="flexBox reset" id="reset5" onclick="resetNew(4)" style="border-color: #b3f5f3;border-image: linear-gradient(45deg, rgb(0, 131, 143), rgb(179, 250, 66)) 1;">Reset your Number, Reset 1, and Reset 2, but gain 1 Reset 2<br>Requires: 50 Reset 2</button>
+            <t class="generalText" id="scaling2">Current Reset Requirement Scaling: [None]</t>
+            <button class="flexBox slowdown" id="slowdown" onclick="data.isSlowed?exitSlowdown():slowdown()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+            <button class="flexBox infinityTube" id="infinityTube" onclick="infinity()">Reset your Number but raise number gain to the 10th power<br>Requires: 100 Number</button>
+            <div id="savestuffcontain">
+                <button class="flexBox saveRelated" id="fullReset" onclick="fullReset()">[Temp] Export and Full Reset</button>
+                <button class="flexBox saveRelated" id="export" onclick="exportSave()">[Temp] Export your Savedata to your clipboard</button>
+                <button class="flexBox saveRelated" id="import" onclick="importSave()">[Temp] Import yout Savedata</button>
+                <button class="flexBox saveRelated" id="help" onclick="help()">Set your Number to 100 [ >:( cheater ]</button>
+            </div>
+        </div>
+        <div class="flexBox" id="finaleContainer" style="display:none;">
+            <button class="flexBox reset" style="border-color: #68008b" onclick="buyFinale()">The combined amounts of all Resets adds to the bulk-buy amount...<br>Cost: 1 Infinity</button>
+        </div>
+        <div class="flexBox" id="trueInfinity" style="display:none;">
+            <button class="flexBox reset" style="border-color: #ffffff" onclick="ti()">Reset EVERYTHING, but Reset 4's effect is now applied to Reset 5.</button>
+        </div>
+        <div class="flexBox" id="jPageContainer" style="flex-direction: column; margin-left: 20px">
+            <div id="jAmt" style="color: #B14565">YOU HAVE 0 J</div>
+            <button class="flexBox resetJ" id="jGen" onclick="doJReset(0)"></button>
+            <button class="flexBox resetJ" id="jGen2" onclick="doJReset(1)"></button>
+            <button class="flexBox resetJ" id="jAuto" onclick="jAutoToggle()">AUTOMATE IT ALL.<br>Requires 50 J?????????Split</button>
+            <button class="flexBox resetJ" id="jEnd" onclick="jEnd()">It's all becoming pointless again.<br>Even the J isn't powerful enough.<br>It's time to enter the Eternal Slowdown.<br>Click to kill the J.</button>
+        </div>
+    <div class="flexBox" id="trueTrueFinale" style="display: none">
+        <button class="flexBox" id="ending" style="min-height: 90px;min-width: 300px; border-color: white" onclick="fullReset()"><br>So it's finally over.<br>Was it worth it?<br>You even went insane at one point, you began hallucinating Js...<br>...<br>So you say it was worth it?<br>You say the numbers made you feel good?<br>You disappoint me.<br>I know you can do it all again, so why don't I just make it easy for you?<br>'Click' this to do it all over.<br>Just think about it, please?<br>...<br>It really is all about that number isn't it?<br>But look at it now.<br>It's just a 1.<br>Just a normal number.<br>Please.<br>Don't do this.<br>...<br>THE J ISN'T DEAD YOU KNOW.<br>IT'S NOT.<br>I just hid it from you. While you were...<br>Losing yourself.<br>But you will truly kill it if you do this.<br>Then all you'll have is the hallucinations of it.<br>That's all I have to say.<br>Don't.<br><br></button>
+    </div>
+        <div id="gwasmithContainer">
+            <img src="gwasmith.png" id="gwasmith">
+        </div>
 </body>
 </html>

@@ -15,3 +15,10 @@
     margin-top: -50px;
     margin-left: -100px;
 }
+#ending{
+    border: 2px solid darkred;
+    background-color: black;
+    color: gray;
+    margin-top: 10px;
+    min-height: 90px; min-width: 300px;
+}
